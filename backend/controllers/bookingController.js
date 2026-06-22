@@ -58,9 +58,13 @@ export const createBooking = async (req, res) => {
 
     const createdBooking = await booking.save();
 
-    // Send emails (non-blocking)
-    sendAdminBookingEmail(createdBooking);
-    sendCustomerBookingEmail(createdBooking);
+    // Wait for emails to send before responding (required for Serverless functions like Vercel)
+    try {
+      await sendCustomerBookingEmail(createdBooking);
+      await sendAdminBookingEmail(createdBooking);
+    } catch (emailError) {
+      console.error('Emails failed to send, but booking succeeded:', emailError);
+    }
 
     res.status(201).json(createdBooking);
   } catch (error) {
