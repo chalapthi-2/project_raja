@@ -1,0 +1,150 @@
+.admin-header {
+  margin-bottom: 2.5rem;
+}
+
+.admin-header h1 {
+  font-size: 2.2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.kpi-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+}
+
+.kpi-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 94, 0, 0.1);
+  color: var(--accent-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-card h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.kpi-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.admin-table-container {
+  padding: 1.5rem;
+}
+
+.table-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+.search-bar .form-input {
+  padding-left: 2.75rem;
+}
+
+.filter-dropdown {
+  position: relative;
+  min-width: 200px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 0.95rem;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.font-mono {
+  font-family: monospace;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-select {
+  background: #121212;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-icon.delete {
+  color: var(--error-color);
+}
+
+.btn-icon.delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
