@@ -7,6 +7,8 @@ import serviceRoutes from './routes/serviceRoutes.js';
 import planRoutes from './routes/planRoutes.js';
 import bookingRoutes from './routes/bookingRoutes.js';
 
+import { sendAdminBookingEmail } from './utils/email.js';
+
 dotenv.config();
 
 // Connect to database
@@ -31,8 +33,6 @@ app.get('/', (req, res) => {
 // Test Email Route (To see errors directly in the browser)
 app.get('/api/test-email', async (req, res) => {
   try {
-    const { sendAdminBookingEmail } = await import('./utils/email.js');
-    
     // Check if environment variables are set
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
       return res.status(400).json({ 
@@ -70,9 +70,10 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== 'production') {
+// Prevent app.listen from running on Vercel
+if (!process.env.VERCEL) {
   app.listen(PORT, () => {
-    console.log(`Server running in development mode on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
   });
 }
 
