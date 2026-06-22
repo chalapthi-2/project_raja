@@ -1,4 +1,4 @@
-import { Droplets, Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
+import { Droplets, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
